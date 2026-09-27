@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal resume website of S Goutham Ganesh, B.Tech Artificial Intelligence and Data Science student at RSET.">
+  <title>S Goutham Ganesh | AI & Data Science</title>
+  <style>
+    :root{
+      --bg:#ffffff;--card:#f8fafc;--card2:#eef6fb;--text:#172033;--muted:#64748b;
+      --accent:#087ea4;--accent2:#6558c7;--line:rgba(15,23,42,.11);
+      --max:1100px;--radius:20px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(92%,var(--max));max-width:1100px;margin:0 auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    nav{height:72px;display:flex;align-items:center;justify-content:flex-end}
+    .brand{font-weight:800;font-size:1.25rem;color:var(--accent);letter-spacing:-.04em}
+    .navlinks{display:flex;list-style:none;gap:1.1rem;font-size:.84rem;color:var(--muted)}
+    .navlinks a:hover,.navlinks a.active{color:var(--accent)}
+    .menu{display:none;background:none;border:0;color:var(--text);font-size:1.6rem}
+    .hero{min-height:calc(100vh - 72px);display:grid;align-items:center;background:
+      radial-gradient(circle at 85% 15%,rgba(8,126,164,.08),transparent 28%),
+      radial-gradient(circle at 10% 80%,rgba(101,88,199,.06),transparent 30%)}
+    .hero-grid{display:flex;align-items:center;min-height:calc(100vh - 72px);padding:6rem 0}
+    .eyebrow,.label{color:var(--accent);font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}
+    h1,h2,h3{font-family:ui-sans-serif,system-ui,sans-serif;line-height:1.1}
+    h1{font-size:clamp(2.8rem,7vw,6rem);letter-spacing:-.065em;margin:.7rem 0}
+    h1.name{color:var(--accent);white-space:nowrap}
+    .role{font-size:1.25rem;font-weight:700;color:#334155}
+    .lead{max-width:720px;color:var(--muted);margin:1.1rem 0 2rem}
+    .actions{display:flex;gap:.8rem;flex-wrap:wrap}
+    .btn{display:inline-flex;padding:.85rem 1.15rem;border-radius:12px;border:1px solid var(--line);font-weight:800}
+    .primary{background:var(--accent);color:#03101b}
+    .secondary{background:#ffffff}
+    .profile{padding:1rem;background:#f8fafc;border:1px solid var(--line);border-radius:24px;text-align:center}
+    .avatar{min-height:260px;border-radius:18px;display:grid;place-items:center;text-align:center;font-size:2.5rem;line-height:1.05;font-weight:900;
+      letter-spacing:-.05em;color:var(--accent);background:linear-gradient(145deg,#eef6fb,#f1efff);border:1px solid var(--line)}
+    .profile p{margin-top:.8rem;font-weight:700}.profile small{color:var(--muted)}
+    section{padding:6rem 0}.alt{background:#f7f9fc}
+    h2{font-size:clamp(2.2rem,5vw,3.7rem);letter-spacing:-.055em;margin:.6rem 0 2.2rem}
+    .about{max-width:900px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:2rem}
+    .about p+p{margin-top:1rem}.muted{color:var(--muted)}
+    .timeline{border-left:2px solid var(--line);padding-left:2rem;margin-left:0}
+    .timeline article{position:relative;padding:1rem 0}.dot{position:absolute;left:-2.48rem;top:1.45rem;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px #ffffff}
+    .date{font-size:.82rem;color:var(--accent);font-weight:800}
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+    .skill,.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:1.35rem}
+    .skill{display:flex;justify-content:space-between;align-items:center}
+    .projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;align-items:stretch}
+    .card{height:100%;transition:.2s}.card:hover{transform:translateY(-5px);border-color:rgba(101,221,255,.35)}
+    .num{color:var(--accent);font-weight:900;font-size:.78rem}.card h3{margin:.55rem 0 .7rem;font-size:1.3rem}.card p{color:var(--muted);font-size:.92rem}
+    .tags{display:flex;gap:.45rem;flex-wrap:wrap;margin:1.1rem 0}.tag{background:var(--card2);padding:.25rem .55rem;border-radius:999px;font-size:.7rem}
+    .note{padding:1.3rem;border-left:3px solid var(--accent);background:rgba(8,126,164,.06);color:var(--muted);border-radius:0 12px 12px 0}
+    .contact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;align-items:stretch}
+    .contact a{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.3rem}
+    .contact span{display:block;color:var(--accent);font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+    .contact strong{display:block;margin-top:.3rem;overflow-wrap:anywhere}
+    footer{border-top:1px solid var(--line);padding:1.4rem 0;color:var(--muted);font-size:.82rem}
+    .footer{display:flex;justify-content:space-between;gap:1rem}
+    @media(max-width:820px){
+      .menu{display:block}.navlinks{display:none;position:absolute;top:72px;left:0;width:100%;padding:1rem 4%;background:var(--card);flex-direction:column;border-bottom:1px solid var(--line)}
+      .navlinks.open{display:flex}.hero-grid{grid-template-columns:1fr;padding:4rem 0}.profile{max-width:330px}
+      .grid2,.projects,.contact{grid-template-columns:1fr}section{padding:4.5rem 0}.footer{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<header>
+  <nav class="container">
+    
+    <button class="menu" id="menu" aria-label="Open menu">☰</button>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#about">About</a></li><li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li><li><a href="#achievements">Achievements</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">B.Tech • Artificial Intelligence &amp; Data Science</p>
+      <h1 class="name">S Goutham Ganesh</h1>
+      <p class="role">Artificial Intelligence and Data Science Student</p>
+      <p class="lead">Aspiring AI Engineer passionate about artificial intelligence, data science and prompt engineering, with a growing foundation in programming, algorithms and data-driven problem solving.</p>
+      <div class="actions"><a class="btn primary" href="#projects">Explore My Work</a><a class="btn secondary" href="#contact">Get In Touch</a></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about" class="reveal">
+  <div class="container">
+    <p class="label">01 — About</p><h2>About Me</h2>
+    <div class="about">
+      <p>I am <strong>S Goutham Ganesh</strong>, a B.Tech student specializing in <strong>Artificial Intelligence and Data Science</strong> at Rajagiri School of Engineering &amp; Technology (RSET), Kochi, Kerala, with a goal of building a career as an <strong>AI Engineer</strong>.</p>
+      <p>I am passionate about artificial intelligence, data science and <strong>prompt engineering</strong>, and I enjoy exploring how intelligent systems can be designed to solve practical problems. I am continuously strengthening my programming, algorithms and data-oriented problem-solving skills.</p>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="reveal alt">
+  <div class="container">
+    <p class="label">02 — Education</p><h2>Education</h2>
+    <div class="timeline">
+      <article><div class="dot"></div><span class="date">2025 — 2029</span><h3>B.Tech — Artificial Intelligence and Data Science</h3><p>Rajagiri School of Engineering &amp; Technology (RSET), Kochi, Kerala</p><p class="muted">Undergraduate Programme • 2025–2029</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="reveal">
+  <div class="container">
+    <p class="label">03 — Skills</p><h2>Technical Skills</h2>
+    <div class="grid2">
+      <div class="skill"><strong>Python</strong></div>
+      <div class="skill"><strong>C Programming</strong></div>
+      <div class="skill"><strong>R Programming</strong></div>
+      <div class="skill"><strong>HTML</strong></div>
+      <div class="skill"><strong>Data Structures</strong></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="reveal alt">
+  <div class="container">
+    <p class="label">04 — Projects</p><h2>Academic Work &amp; Projects</h2>
+    <div class="projects">
+      <article class="card"><span class="num">01</span><h3>Employee Salary Data Analysis</h3><p>Academic R programming work involving employee salary data, aggregation, sorting and exploratory visualization.</p><div class="tags"><span class="tag">R</span><span class="tag">Data Analysis</span><span class="tag">Visualization</span></div></article>
+      <article class="card"><span class="num">02</span><h3>Data Structures Practice</h3><p>Academic implementations and practice with stacks, queues, priority queues, circular queues and fundamental operations.</p><div class="tags"><span class="tag">C</span><span class="tag">Data Structures</span><span class="tag">Algorithms</span></div></article>
+      <article class="card"><span class="num">03</span><h3>Data Science Exploration</h3><p>Exploring data science concepts through programming practice, data analysis exercises and visualization using R.</p><div class="tags"><span class="tag">Data Science</span><span class="tag">R</span><span class="tag">Visualization</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="certifications" class="reveal">
+  <div class="container">
+    <p class="label">05 — Certifications</p><h2>Certifications</h2>
+    <div class="projects">
+      <article class="card"><span class="num">01</span><h3>Advanced C Programming</h3><p>Advanced C Programming certification completed through CodeTantra.</p><div class="tags"><span class="tag">C Programming</span><span class="tag">CodeTantra</span></div></article>
+      <article class="card"><span class="num">02</span><h3>Data Science 101</h3><p>Data Science 101 completed through Cognitive Class, powered by IBM Developer Skills Network.</p><div class="tags"><span class="tag">Data Science</span><span class="tag">IBM</span><span class="tag">Cognitive Class</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="achievements" class="reveal alt">
+  <div class="container">
+    <p class="label">06 — Achievements</p><h2>Achievements</h2>
+    <div class="card">
+      <span class="num">01</span>
+      <h3>2nd Place — Techverse</h3>
+      <p>Secured 2nd place in Techverse, organized by the IEEE CSI Kerala Chapter as part of Informatyka 6.0.</p>
+      <div class="tags"><span class="tag">Techverse</span><span class="tag">IEEE</span><span class="tag">CSI Kerala Chapter</span><span class="tag">Informatyka 6.0</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="reveal">
+  <div class="container">
+    <p class="label">07 — Contact</p><h2>Let's Connect</h2>
+    <p class="muted" style="margin-top:-1rem;margin-bottom:1.7rem">Connect with me through the links below.</p>
+    <div class="contact">
+      <a href="mailto:gouthamganesh07@gmail.com"><span>Email</span><strong>gouthamganesh07@gmail.com</strong></a>
+      <a href="https://github.com/gouthamganesh07" target="_blank" rel="noopener"><span>GitHub</span><strong>gouthamganesh07</strong></a>
+      <a href="https://www.linkedin.com/in/s-goutham-ganesh-tech/" target="_blank" rel="noopener"><span>LinkedIn</span><strong>s-goutham-ganesh-tech</strong></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="container footer"><span>© 2026 S Goutham Ganesh</span><span>B.Tech Artificial Intelligence and Data Science • RSET</span></div></footer>
+
+<script>
+  const menu=document.getElementById('menu'), links=document.getElementById('navlinks');
+  menu.addEventListener('click',()=>links.classList.toggle('open'));
+  document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+
+  const progress=document.getElementById('scrollProgress');
+  const updateProgress=()=>{
+    const scrollTop=window.scrollY;
+    const height=document.documentElement.scrollHeight-window.innerHeight;
+    progress.style.width=(height>0?(scrollTop/height)*100:0)+'%';
+  };
+  window.addEventListener('scroll',updateProgress,{passive:true});
+  updateProgress();
+
+  const sections=[...document.querySelectorAll('main section[id]')];
+  const navAnchors=[...document.querySelectorAll('.navlinks a')];
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        navAnchors.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id));
+      }
+    });
+  },{rootMargin:'-25% 0px -60% 0px'});
+  sections.forEach(s=>observer.observe(s));
+</script>
+</body>
+</html>
